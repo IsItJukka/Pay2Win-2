@@ -1,0 +1,36 @@
+.balans-container {
+    width: 1200px;
+    display: block;
+    border-radius: 20px;
+    margin: 20px auto 0;
+    padding: 60px;
+}
+
+.form-group {
+    margin-top: 20px;
+    max-width: auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.balans-btn {
+    margin-top: 20px;
+    margin-bottom: 17px;
+    display: table;
+    width: auto;
+    background: #17212b;
+    padding: 9px;
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 9px 18px rgba(0, 0, 0, 0.12), 0 5px 7px rgba(0, 0, 0, 0.05);
+}
+
+.payment_selcolor {
+    margin-left: 10px;
+    padding: 2px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

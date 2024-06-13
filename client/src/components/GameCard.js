@@ -6,7 +6,6 @@ import { GAME_ROUTE } from "../utils/consts";
 
 const GameCard = ({ game }) => {
     const navigate = useNavigate();
-
     return (
         <Col md={4} onClick={() => navigate(`${GAME_ROUTE}/${game.id}`)}>
             <div className="game-card__container">

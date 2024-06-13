@@ -19,3 +19,8 @@ export const getGamesCount = async () => {
     const response = await $host.get("api/game/count");
     return response.data;
 };
+
+export const searchGames = async (query) => {
+    const { data } = await $host.get("api/game/search", { params: { query } });
+    return data;
+};

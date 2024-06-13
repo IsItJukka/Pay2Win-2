@@ -1,66 +1,48 @@
-import React from "react";
-import "../styles/GameCard.css";
-import { Link, useNavigate } from "react-router-dom";
-import { Col, Row } from "react-bootstrap";
-import GoodCard from "../components/GoodCard";
-import GoodStore from "../store/GoodStore";
-
-const goodStore = new GoodStore();
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import FilterTable from "../components/FilterTable";
+import { fetchGoodsByGameId } from "../http/goodAPI";
 
 const Game = () => {
-    return (
-        <div
-            className="game-container"
-            style={{ backgroundColor: "#fff", height: "100vh" }}
-        >
-            <Row style={{ display: "flex" }}>
-                <div style={{ width: "700px" }}>
-                    <div style={{ display: "flex" }}>
-                        <input
-                            className="basic-input"
-                            type="text"
-                            placeholder="Поиск по описанию"
-                        />
-                        <input
-                            className="basic-input"
-                            type="text"
-                            placeholder="Цена от"
-                            style={{ width: "110px", marginLeft: "15px" }}
-                        />
-                        <input
-                            className="basic-input"
-                            type="text"
-                            placeholder="Цена до"
-                            style={{ width: "110px", marginLeft: "15px" }}
-                        />
-                    </div>
-                    <div style={{ display: "flex", marginTop: "16px" }}>
-                        <input
-                            className="basic-input"
-                            type="text"
-                            placeholder="Только продавцы онлайн"
-                        />
-                    </div>
-                </div>
-                <div
-                    style={{
-                        alignItems: "start",
-                        width: "250px",
-                        height: "41px",
-                        marginTop: "10px",
-                        marginLeft: "30px",
-                    }}
-                >
-                    <Link className="add-good" to={"/"}>
-                        Добавить товар
-                    </Link>
-                </div>
-            </Row>
+    const { gameId } = useParams();
+    const [goods, setGoods] = useState([]);
+    const [searchText, setSearchText] = useState("");
+    const [priceFrom, setPriceFrom] = useState("");
+    const [priceTo, setPriceTo] = useState("");
 
-            {goodStore.goods.map((good) => (
-                <GoodCard key={good.id} good={good} />
-            ))}
-        </div>
+    useEffect(() => {
+        const loadGoods = async () => {
+            try {
+                const loadedGoods = await fetchGoodsByGameId(gameId);
+                setGoods(loadedGoods);
+            } catch (error) {
+                console.error("Error loading goods:", error);
+            }
+        };
+        loadGoods();
+    }, [gameId]);
+
+    const filteredGoods = goods.filter((product) => {
+        const matchesDescription = product.good_name
+            .toLowerCase()
+            .includes(searchText.toLowerCase());
+        const matchesPriceFrom =
+            priceFrom === "" || product.good_price >= parseFloat(priceFrom);
+        const matchesPriceTo =
+            priceTo === "" || product.good_price <= parseFloat(priceTo);
+        return matchesDescription && matchesPriceFrom && matchesPriceTo;
+    });
+
+    return (
+        <FilterTable
+            goods={filteredGoods}
+            searchText={searchText}
+            setSearchText={setSearchText}
+            priceFrom={priceFrom}
+            setPriceFrom={setPriceFrom}
+            priceTo={priceTo}
+            setPriceTo={setPriceTo}
+        />
     );
 };
 

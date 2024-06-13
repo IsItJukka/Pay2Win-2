@@ -1,17 +1,22 @@
 import React, { useContext, useEffect } from "react";
-import GameList from "../components/GameList";
 import { observer } from "mobx-react-lite";
 import { Context } from "../index";
+import GameList from "../components/GameList";
 import { fetchGame } from "../http/gameAPI";
+import "../styles/App.css";
 
 const Shop = observer(() => {
     const { game } = useContext(Context);
 
     useEffect(() => {
-        fetchGame().then((data) => {
-            game.setGames(data.rows);
-        });
-    }, []);
+        fetchGame()
+            .then((data) => {
+                game.setGames(data);
+            })
+            .catch((error) => {
+                console.error("Ошибка при получении игр:", error);
+            });
+    }, [game]);
 
     return (
         <div className="container">

@@ -10,7 +10,6 @@
 .profile-container {
     width: 1200px;
     display: block;
-    background-color: #9fa3da80;
     border-radius: 20px;
     margin: 20px auto 0;
     padding: 60px;
@@ -56,6 +55,63 @@
     color: #000000;
 }
 
+.edit-profile-btns {
+    display: flex;
+    flex-direction: row;
+}
+
+.edit-profile {
+    margin-bottom: 17px;
+    display: table;
+    width: auto;
+    background: #17212b;
+    padding: 9px;
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 9px 18px rgba(0, 0, 0, 0.12), 0 5px 7px rgba(0, 0, 0, 0.05);
+}
+
+.edit-profile:hover {
+    background-color: #4e4e4e;
+}
+
+.edit-profile-adm {
+    margin-bottom: 17px;
+    margin-left: 10px;
+    display: table;
+    width: auto;
+    background: #e62933;
+    padding: 9px;
+    border: #ff313b;
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 9px 18px #ff212c2a, 0 5px 7px #ff212c2a;
+}
+
+.edit-profile-adm:hover {
+    cursor: default;
+}
+
+.edit-profile-pols {
+    margin-bottom: 17px;
+    margin-left: 10px;
+    display: table;
+    width: auto;
+    background: #59bf3c;
+    padding: 9px;
+    border: #4ba732;
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 9px 18px #54c73428 5px 7px #54c73428;
+}
+
+.edit-profile-pols:hover {
+    cursor: default;
+}
+
 .profile-nav-info h3 {
     text-align: right;
     font-variant: small-caps;
@@ -92,16 +148,51 @@
     margin-top: 20px;
     background: #fff;
     box-shadow: 0px 3px 5px #00000033;
-    padding: 60px 30px 20px;
+    padding: 20px 30px 20px;
     font-family: sans-serif;
+    overflow-y: auto;
 }
 
-.profile-side p {
-    text-align: center;
-    font-variant: small-caps;
-    font-size: 30px;
-    font-family: sans-serif;
-    font-weight: bold;
+.profile-side::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+.profile-btn-add {
+    margin-top: 40px;
+    width: 440px;
+}
+
+.profile-btn-add a {
+    color: #fff;
+    text-decoration: none;
+    font: 900 12px Lato;
+    padding: 8px 20px 8px 20px;
+    border: 3px solid #17212b;
+    color: #17212b;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    margin-left: 27px;
+    margin-bottom: 10px;
+}
+.profile-btn-add.number {
+    padding: 3px 6px 4px 8px;
+    background: #17212b;
+    position: absolute;
+    border-radius: 50px;
+    font: 900 12px Lato;
+    color: #fff;
+    top: -10px;
+    right: -17px;
+    border: 3px solid #fff;
+}
+
+.btn-add-pe:hover {
+    color: #fff;
+    transition: 0.4s;
+    background: #17212b;
+    border: 3px solid #17212b;
 }
 
 .osnova {
@@ -111,6 +202,11 @@
     height: 700px;
     box-shadow: 0px 3px 4px #00000033;
     margin-top: 10px;
+    overflow-x: hidden;
+}
+
+.osnova::-webkit-scrollbar {
+    width: 0 !important;
 }
 
 .osnova-text {
@@ -133,4 +229,185 @@
     width: 100%;
     padding: 40px;
     white-space: normal;
+}
+
+.shadow-effect {
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #ececec;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.02);
+}
+#customers-testimonials .shadow-effect p {
+    font-family: inherit;
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 0 0 17px 0;
+    font-weight: 300;
+}
+.testimonial-name {
+    margin: -17px auto 0;
+    margin-bottom: 17px;
+    display: table;
+    width: auto;
+    background: #17212b;
+    padding: 9px;
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 9px 18px rgba(0, 0, 0, 0.12), 0 5px 7px rgba(0, 0, 0, 0.05);
+}
+
+.table-h-profile {
+    width: 725px;
+    word-break: break-word;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    padding: 10%;
+    overflow: hidden;
+    border-radius: 20px;
+    table-layout: fixed;
+    box-shadow: 0px 5px 10px #00000033;
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+
+.table-h-profile tr {
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid #000000;
+    table-layout: auto;
+    background-color: #ffffff;
+    box-shadow: 0px 5px 10px #00000033;
+}
+
+.table-h-profile tr:hover {
+    background-color: #dddedf;
+    -webkit-box-shadow: 0 6px 6px -6px #0e1119;
+    -moz-box-shadow: 0 6px 6px -6px #0e1119;
+    box-shadow: 0 6px 6px -6px #0e1119;
+}
+
+.table-h-profile th {
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 15px;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.table-h-profile td {
+    padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    color: #000000;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+.edit-profile-btns {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transform: translate(0);
+}
+
+.reviews_rating-area {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.reviews_rating-area:not(:checked) > input {
+    display: none;
+}
+
+.reviews_rating-area:not(:checked) > label {
+    cursor: pointer;
+    font-size: 24px;
+    color: #17212b;
+    text-shadow: 1px 1px #bbb;
+}
+
+.reviews_rating-area:not(:checked) > label:before {
+    content: "★";
+}
+
+.reviews_rating-area > input:checked ~ label {
+    color: gold;
+    text-shadow: 1px 1px #c60;
+}
+
+.reviews_rating-area:not(:checked) > label:hover,
+.reviews_rating-area:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+
+.reviews_rating-area > input:checked + label:hover,
+.reviews_rating-area > input:checked + label:hover ~ label,
+.reviews_rating-area > input:checked ~ label:hover,
+.reviews_rating-area > input:checked ~ label:hover ~ label,
+.reviews_rating-area > label:hover ~ input:checked ~ label {
+    color: gold;
+    text-shadow: 1px 1px goldenrod;
+}
+
+.reviews_rating-area > label:active {
+    position: relative;
+}
+
+.reviews_rating-area-1 > label {
+    pointer-events: none;
+}
+
+.testimonial-item > div:first-child {
+    margin-top: 35px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.edit-profile-support {
+    margin-bottom: 17px;
+    margin-left: 10px;
+    display: table;
+    width: auto;
+    background: #3481d8;
+    padding: 9px;
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+    border: none;
+    box-shadow: 0 9px 18px rgba(0, 0, 0, 0.12), 0 5px 7px rgba(0, 0, 0, 0.05);
+}
+
+.edit-profile-support:hover {
+    cursor: pointer;
+}
+
+.edit-profile-blocked {
+    margin-bottom: 17px;
+    margin-left: 10px;
+    display: table;
+    border: none;
+    width: auto;
+    background: #b92b27;
+    padding: 9px;
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 9px 18px rgba(0, 0, 0, 0.12), 0 5px 7px rgba(0, 0, 0, 0.05);
+}
+
+.edit-profile-blocked:hover {
+    cursor: pointer;
 }
